@@ -1,0 +1,76 @@
+name: WAFID Demand Tracker
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # har ghante (UTC :17 = IST :47)
+  workflow_dispatch:        # Actions tab -> "Run workflow" button
+    inputs:
+      mode:
+        description: "Run mode"
+        required: true
+        default: "test-full"
+        type: choice
+        options:
+          - test-telegram   # sirf Telegram connection check
+          - test-full       # poora wafid check + Telegram, state save nahi hoti
+          - normal          # asli hourly run jaisa (state/history save hoti hai)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wafid-tracker
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RUN_MODE: ${{ github.event_name == 'schedule' && 'normal' || inputs.mode }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      GMAIL_USER: ${{ secrets.GMAIL_USER }}
+      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+      ALERT_TO: ${{ secrets.ALERT_TO }}
+      WATCH_CITIES: "Gorakhpur"
+      HOURLY_TELEGRAM: "true"     # "false" karein to Telegram sirf change pe aayega
+      ALERT_ON_FAILURE: "true"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Telegram connection test
+        if: env.RUN_MODE == 'test-telegram'
+        run: python3 check_demand.py
+
+      - uses: actions/setup-python@v5
+        if: env.RUN_MODE != 'test-telegram'
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright
+        if: env.RUN_MODE != 'test-telegram'
+        run: |
+          pip install playwright==1.47.0
+          python -m playwright install --with-deps chromium
+
+      - name: Check demand
+        if: env.RUN_MODE != 'test-telegram'
+        run: python check_demand.py
+
+      - name: Save state & history
+        if: success() && env.RUN_MODE == 'normal'
+        run: |
+          git config user.name "wafid-bot"
+          git config user.email "wafid-bot@users.noreply.github.com"
+          git add state/
+          git diff --cached --quiet || git commit -m "WAFID demand check $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
+
+      - name: Upload debug (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug
+          path: debug/
+          if-no-files-found: ignore
