@@ -1,0 +1,12 @@
+checked_at,country,city,city_id,level,rate,error
+21-09-2026 15:29 IST,India,Coimbatore,2019,High,100.00,
+21-09-2026 15:29 IST,India,Demow,137,High,100.00,
+21-09-2026 15:29 IST,India,Goa,132,Low,20.79,
+21-09-2026 15:29 IST,India,Indore,2026,High,100.00,
+21-09-2026 15:29 IST,India,Kadapa,2060,Moderate,35.34,
+21-09-2026 15:29 IST,India,Madurai,2027,High,100.00,
+21-09-2026 15:29 IST,India,Mangalore,59,Moderate,32.48,
+21-09-2026 15:29 IST,India,Manjeri,97,Moderate,33.02,
+21-09-2026 15:29 IST,India,Silchar,2062,High,100.00,
+21-09-2026 15:29 IST,India,Tiruchirappalli,70,Moderate,55.57,
+21-09-2026 15:29 IST,India,Vijayawada,2064,Low,15.49,
