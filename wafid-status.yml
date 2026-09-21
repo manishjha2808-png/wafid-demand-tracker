@@ -1,0 +1,70 @@
+name: WAFID Application Status
+
+on:
+  schedule:
+    - cron: "37 * * * *"   # har ghante (UTC :37 = IST :07)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        required: true
+        default: "test-full"
+        type: choice
+        options:
+          - test-telegram
+          - test-full
+          - normal
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wafid-status
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RUN_MODE: ${{ github.event_name == 'schedule' && 'normal' || inputs.mode }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      WAFID_IDS: ${{ secrets.WAFID_IDS }}
+      HOURLY_TELEGRAM: "true"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Telegram connection test
+        if: env.RUN_MODE == 'test-telegram'
+        run: python3 check_status.py
+
+      - uses: actions/setup-python@v5
+        if: env.RUN_MODE != 'test-telegram'
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright
+        if: env.RUN_MODE != 'test-telegram'
+        run: |
+          pip install playwright==1.47.0
+          python -m playwright install --with-deps chromium
+
+      - name: Restore last status (private cache)
+        if: env.RUN_MODE != 'test-telegram'
+        uses: actions/cache/restore@v4
+        with:
+          path: status_state
+          key: status-state-${{ github.run_id }}
+          restore-keys: status-state-
+
+      - name: Check application status
+        if: env.RUN_MODE != 'test-telegram'
+        run: python check_status.py
+
+      - name: Save status (private cache)
+        if: success() && env.RUN_MODE == 'normal'
+        uses: actions/cache/save@v4
+        with:
+          path: status_state
+          key: status-state-${{ github.run_id }}
