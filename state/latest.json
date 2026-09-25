@@ -1,5 +1,5 @@
 {
-  "checked_at": "25-09-2026 14:01 IST",
+  "checked_at": "25-09-2026 15:00 IST",
   "country": "India",
   "cities": [
     {
@@ -20,7 +20,7 @@
       "city": "Goa",
       "city_id": "132",
       "level": "Low",
-      "rate": "21.76",
+      "rate": "21.72",
       "error": ""
     },
     {
@@ -34,7 +34,7 @@
       "city": "Kadapa",
       "city_id": "2060",
       "level": "Moderate",
-      "rate": "40.13",
+      "rate": "41.14",
       "error": ""
     },
     {
@@ -48,14 +48,14 @@
       "city": "Mangalore",
       "city_id": "59",
       "level": "Moderate",
-      "rate": "33.20",
+      "rate": "33.04",
       "error": ""
     },
     {
       "city": "Manjeri",
       "city_id": "97",
       "level": "Moderate",
-      "rate": "33.31",
+      "rate": "33.16",
       "error": ""
     },
     {
@@ -69,14 +69,14 @@
       "city": "Tiruchirappalli",
       "city_id": "70",
       "level": "Moderate",
-      "rate": "58.21",
+      "rate": "57.91",
       "error": ""
     },
     {
       "city": "Vijayawada",
       "city_id": "2064",
       "level": "Low",
-      "rate": "15.89",
+      "rate": "15.93",
       "error": ""
     }
   ]
