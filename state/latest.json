@@ -1,5 +1,5 @@
 {
-  "checked_at": "27-09-2026 14:00 IST",
+  "checked_at": "27-09-2026 15:00 IST",
   "country": "India",
   "cities": [
     {
@@ -20,7 +20,7 @@
       "city": "Goa",
       "city_id": "132",
       "level": "Low",
-      "rate": "22.44",
+      "rate": "22.26",
       "error": ""
     },
     {
@@ -48,14 +48,14 @@
       "city": "Mangalore",
       "city_id": "59",
       "level": "Moderate",
-      "rate": "33.61",
+      "rate": "32.96",
       "error": ""
     },
     {
       "city": "Manjeri",
       "city_id": "97",
       "level": "Moderate",
-      "rate": "33.61",
+      "rate": "33.15",
       "error": ""
     },
     {
@@ -69,7 +69,7 @@
       "city": "Tiruchirappalli",
       "city_id": "70",
       "level": "Moderate",
-      "rate": "58.56",
+      "rate": "57.79",
       "error": ""
     },
     {
