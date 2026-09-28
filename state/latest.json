@@ -1,5 +1,5 @@
 {
-  "checked_at": "28-09-2026 09:00 IST",
+  "checked_at": "28-09-2026 10:00 IST",
   "country": "India",
   "cities": [
     {
@@ -31,13 +31,6 @@
       "error": ""
     },
     {
-      "city": "Kadapa",
-      "city_id": "2060",
-      "level": "Moderate",
-      "rate": "43.59",
-      "error": ""
-    },
-    {
       "city": "Madurai",
       "city_id": "2027",
       "level": "High",
@@ -63,13 +56,6 @@
       "city_id": "2062",
       "level": "High",
       "rate": "100.00",
-      "error": ""
-    },
-    {
-      "city": "Tiruchirappalli",
-      "city_id": "70",
-      "level": "Moderate",
-      "rate": "57.79",
       "error": ""
     },
     {
