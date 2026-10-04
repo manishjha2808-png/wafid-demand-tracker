@@ -1,5 +1,5 @@
 {
-  "checked_at": "05-10-2026 02:00 IST",
+  "checked_at": "05-10-2026 03:00 IST",
   "country": "India",
   "cities": [
     {
@@ -20,7 +20,7 @@
       "city": "Goa",
       "city_id": "132",
       "level": "Low",
-      "rate": "23.32",
+      "rate": "23.37",
       "error": ""
     },
     {
