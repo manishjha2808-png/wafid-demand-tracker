@@ -1,5 +1,5 @@
 {
-  "checked_at": "05-10-2026 11:00 IST",
+  "checked_at": "05-10-2026 12:00 IST",
   "country": "India",
   "cities": [
     {
@@ -26,13 +26,6 @@
     {
       "city": "Indore",
       "city_id": "2026",
-      "level": "High",
-      "rate": "100.00",
-      "error": ""
-    },
-    {
-      "city": "Madurai",
-      "city_id": "2027",
       "level": "High",
       "rate": "100.00",
       "error": ""
