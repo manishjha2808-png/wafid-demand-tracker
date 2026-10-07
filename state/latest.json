@@ -1,5 +1,5 @@
 {
-  "checked_at": "08-10-2026 02:06 IST",
+  "checked_at": "08-10-2026 03:00 IST",
   "country": "India",
   "cities": [
     {
@@ -34,14 +34,14 @@
       "city": "Mangalore",
       "city_id": "59",
       "level": "Moderate",
-      "rate": "33.62",
+      "rate": "33.85",
       "error": ""
     },
     {
       "city": "Manjeri",
       "city_id": "97",
       "level": "Moderate",
-      "rate": "33.17",
+      "rate": "33.26",
       "error": ""
     },
     {
@@ -55,7 +55,7 @@
       "city": "Vijayawada",
       "city_id": "2064",
       "level": "Low",
-      "rate": "18.30",
+      "rate": "18.45",
       "error": ""
     }
   ]
