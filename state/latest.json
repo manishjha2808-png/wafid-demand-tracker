@@ -1,5 +1,5 @@
 {
-  "checked_at": "14-10-2026 17:00 IST",
+  "checked_at": "14-10-2026 18:00 IST",
   "country": "India",
   "cities": [
     {
@@ -28,13 +28,6 @@
       "city_id": "2026",
       "level": "High",
       "rate": "100.00",
-      "error": ""
-    },
-    {
-      "city": "Mangalore",
-      "city_id": "59",
-      "level": "Moderate",
-      "rate": "33.70",
       "error": ""
     },
     {
