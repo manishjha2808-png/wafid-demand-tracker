@@ -1,5 +1,5 @@
 {
-  "checked_at": "20-11-2026 02:00 IST",
+  "checked_at": "20-11-2026 03:02 IST",
   "country": "India",
   "cities": [
     {
@@ -20,7 +20,7 @@
       "city": "Goa",
       "city_id": "132",
       "level": "Low",
-      "rate": "27.04",
+      "rate": "27.20",
       "error": ""
     },
     {
@@ -34,7 +34,7 @@
       "city": "Manjeri",
       "city_id": "97",
       "level": "Moderate",
-      "rate": "32.50",
+      "rate": "32.62",
       "error": ""
     },
     {
